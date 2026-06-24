@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aandelen Research — Gratis: elke maand één onderschat aandeel in je inbox</title>
+<meta name="description" content="Ontvang gratis elke maand de volledige analyse van één zorgvuldig geselecteerd aandeel. 12 per jaar, recht in je inbox. Geen kosten, uitschrijven in 1 klik.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0D1B2A;--navy-2:#142436;--blue:#1E3A8A;
+    --bg:#F8FAFC;--white:#fff;--line:#E2E8F0;--line-2:#CBD5E1;
+    --ink:#0F172A;--slate:#475569;--slate-soft:#64748B;
+    --emerald:#10B981;--emerald-deep:#059669;
+    --orange:#F97316;--orange-hi:#FF6B35;--orange-deep:#C2410C;
+    --on-navy:rgba(255,255,255,.82);--on-navy-soft:rgba(255,255,255,.55);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--emerald);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  h1,h2,h3{font-family:"Plus Jakarta Sans",sans-serif;line-height:1.08;letter-spacing:-.02em;font-weight:800}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald)}
+  a{color:inherit}
+
+  .btn{appearance:none;border:none;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;font-size:17px;color:#fff;background:var(--orange);padding:16px 28px;border-radius:9px;white-space:nowrap;box-shadow:0 4px 0 var(--orange-deep),0 12px 28px -10px rgba(249,115,22,.6);transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+  .btn:hover{background:var(--orange-hi);transform:translateY(-2px);box-shadow:0 6px 0 var(--orange-deep),0 18px 36px -12px rgba(255,107,53,.7)}
+  .btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--orange-deep)}
+
+  .capture{display:flex;gap:10px;flex-wrap:wrap;max-width:540px}
+  .capture .field{flex:1 1 250px}
+  .capture input[type=email]{width:100%;min-height:56px;border-radius:9px;font-family:"Inter",sans-serif;font-size:16px;padding:14px 16px;background:#fff;border:1.5px solid var(--line-2);color:var(--ink)}
+  .capture input[type=email]::placeholder{color:#94A3B8}
+  .capture input[type=email]:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 3px rgba(16,185,129,.22)}
+  .capture .btn{flex:0 0 auto}
+
+  .ticks{display:flex;flex-wrap:wrap;gap:14px 24px;margin:0 0 24px}
+  .tick{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--on-navy)}
+  .tick svg{width:18px;height:18px;flex:none}
+  .check circle{fill:var(--emerald)}.check path{stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+  .consent{font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.6;color:var(--on-navy-soft);margin-top:15px;max-width:46em}
+  .consent a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  *:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:5px}
+
+  /* TOPBAR */
+  .topbar{background:var(--navy)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(150deg,var(--emerald),var(--emerald-deep));display:grid;place-items:center;flex:none}
+  .logo .mark svg{width:17px;height:17px}.logo .mark path{stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .logo .name{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:18px;color:#fff}
+  .topbar .meta{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.06em;color:var(--on-navy-soft)}
+
+  /* HERO */
+  .hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+  .hero .chartbg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5}
+  .hero .glow{position:absolute;top:-22%;right:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(16,185,129,.14),transparent 60%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;padding:60px 26px 70px}
+  .hero .eyebrow{display:inline-block;margin-bottom:16px}
+  .hero h1{color:#fff;font-size:clamp(34px,4.9vw,56px);margin-bottom:16px}
+  .hero h1 span{color:var(--emerald)}
+  .hero .lede{font-size:clamp(16.5px,1.4vw,19px);max-width:30em;margin-bottom:24px;color:var(--on-navy)}
+
+  .report{background:#fff;color:var(--ink);border-radius:14px;box-shadow:0 40px 80px -34px rgba(0,0,0,.55);overflow:hidden}
+  .report-top{background:var(--navy);color:#fff;padding:14px 22px;display:flex;justify-content:space-between;align-items:center}
+  .report-top .t{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.12em}
+  .report-top .e{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;color:var(--emerald)}
+  .report-body{padding:22px}
+  .report .nm-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+  .blur-name{filter:blur(8px);user-select:none;pointer-events:none;font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:24px;color:var(--ink)}
+  .lock{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;background:var(--navy);color:var(--emerald);padding:6px 10px;border-radius:6px;white-space:nowrap}
+  .lock svg{width:12px;height:12px}.lock path,.lock rect{stroke:var(--emerald);stroke-width:2.2;fill:none}
+  .report .reveal-note{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--slate-soft);margin-bottom:18px}
+  .report .grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-bottom:18px}
+  .report .cell{background:#fff;padding:12px 14px}
+  .report .cell .k{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-soft);margin-bottom:5px}
+  .report .cell .v{font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;font-size:17px}
+  .report .cell .v.up{color:var(--emerald-deep)}
+  .report .cell .v.r{filter:blur(7px);user-select:none}
+  .report .th-lbl{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald-deep);margin-bottom:7px}
+  .report .th p{font-size:13.5px;line-height:1.5;color:#334155;filter:blur(3.6px);user-select:none}
+
+  /* BENEFITS-REGEL */
+  .benefits{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .benefits .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 26px;padding:22px 26px}
+  .benefits .lab{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-soft)}
+  .chip{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:var(--ink)}
+  .chip .d{width:7px;height:7px;border-radius:50%;background:var(--emerald);flex:none}
+
+  /* PARTNERS */
+  .partners{background:var(--bg);padding:64px 0}
+  .partners .head{text-align:center;max-width:620px;margin:0 auto 36px}
+  .partners .head h2{font-size:clamp(24px,2.8vw,34px);margin-top:12px;color:var(--ink)}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 30px;display:flex;gap:18px;align-items:flex-start;transition:transform .2s ease,box-shadow .2s ease}
+  .pcard:hover{transform:translateY(-3px);box-shadow:0 20px 40px -26px rgba(13,27,42,.4)}
+  .pcard .pm{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex:none;font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:18px;color:#fff;letter-spacing:.02em}
+  .pm.vj{background:linear-gradient(150deg,var(--emerald),var(--emerald-deep))}
+  .pm.bv{background:linear-gradient(150deg,var(--blue),var(--navy))}
+  .pcard .pname{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:18px;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:9px}
+  .pcard .ptag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--emerald-deep);background:rgba(16,185,129,.12);padding:3px 7px;border-radius:5px}
+  .pcard p{color:var(--slate);font-size:15px;line-height:1.5}
+
+  /* FINALE CTA */
+  .final{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .final .glow{position:absolute;bottom:-45%;left:50%;transform:translateX(-50%);width:740px;height:540px;background:radial-gradient(circle,rgba(16,185,129,.16),transparent 60%);pointer-events:none}
+  .final .wrap{position:relative;padding:70px 26px;text-align:center}
+  .final h2{font-size:clamp(28px,3.6vw,44px);max-width:15em;margin:12px auto 12px}
+  .final h2 span{color:var(--emerald)}
+  .final .lede{color:var(--on-navy);max-width:32em;margin:0 auto 26px}
+  .final .capture{margin:0 auto;justify-content:center}
+  .final .consent{margin:16px auto 0;text-align:center}
+
+  .success{display:none;max-width:540px;background:rgba(16,185,129,.12);border:1px solid var(--emerald);border-radius:11px;padding:22px 24px}
+  .success.show{display:block;animation:rise .5s ease both}
+  .success .h{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:21px;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:9px}
+  .success .h svg{width:22px;height:22px}
+  .success p{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--on-navy)}
+  .hero .success{background:rgba(16,185,129,.1)}.hero .success .h{color:var(--ink)}.hero .success p{color:var(--slate)}
+  .final .success{margin:0 auto}
+
+  /* FOOTER */
+  footer{background:#08111c;color:var(--on-navy-soft);padding:46px 0 54px;font-size:13.5px}
+  footer .wrap{display:grid;gap:22px}
+  footer .ftop{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08)}
+  footer .ftop .name{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;color:#fff;font-size:16px}
+  footer .disc{font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.7;max-width:64em}
+  footer .partner{color:var(--on-navy)}
+  footer .legal{display:flex;gap:20px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:11px}
+  footer .legal a{text-decoration:none;opacity:.8}footer .legal a:hover{opacity:1;color:#fff}
+
+  /* STICKY MOBIEL */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--navy);border-top:1px solid rgba(255,255,255,.12);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .3s ease;box-shadow:0 -8px 24px -12px rgba(0,0,0,.6)}
+  .sticky.show{transform:translateY(0)}
+  .sticky .lbl{color:#fff;font-weight:700;font-size:14px;font-family:"Plus Jakarta Sans",sans-serif;line-height:1.2}
+  .sticky .lbl small{display:block;font-weight:400;font-size:11px;color:var(--on-navy-soft);font-family:"JetBrains Mono",monospace}
+  .sticky .btn{padding:13px 20px;font-size:15px;box-shadow:0 3px 0 var(--orange-deep)}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:0;transform:translateY(18px)}
+  .reveal.in{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
+
+  @media(max-width:920px){
+    .hero .wrap{grid-template-columns:1fr;gap:38px;padding:46px 26px 58px}
+    .report{max-width:460px}
+    .pgrid{grid-template-columns:1fr}
+    .sticky{display:flex}
+  }
+  @media(max-width:540px){
+    body{font-size:16px}.topbar .meta{display:none}
+    .capture .btn{flex:1 1 100%}
+    .benefits .wrap{justify-content:flex-start}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}.sticky{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="logo">
+      <span class="mark"><svg viewBox="0 0 24 24"><path d="M4 16l5-6 4 4 7-9"/><path d="M20 5h-4M20 5v4"/></svg></span>
+      <span class="name">Aandelen Research</span>
+    </div>
+    <span class="meta">Gratis · 12 analyses per jaar</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="chartbg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <polyline points="0,470 150,440 300,455 450,380 600,400 750,300 900,330 1050,200 1200,150" fill="none" stroke="#10B981" stroke-width="2" opacity="0.22"/>
+    <polyline points="0,470 150,440 300,455 450,380 600,400 750,300 900,330 1050,200 1200,150 1200,600 0,600" fill="#10B981" opacity="0.05"/>
+  </svg>
+  <span class="glow"></span>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow reveal">Gratis · elke maand één aandeel</span>
+      <h1 class="reveal">Elke maand één onderschat aandeel — <span>gratis in je inbox</span>.</h1>
+      <p class="lede reveal">De volledige analyse van één zorgvuldig geselecteerd aandeel. Twaalf keer per jaar, geen kosten. Laat enkel je e-mailadres achter.</p>
+
+      <div class="ticks reveal">
+        <span class="tick"><svg class="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg>100% gratis</span>
+        <span class="tick"><svg class="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg>Ondergewaardeerde aandelen</span>
+        <span class="tick"><svg class="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg>Professionele research</span>
+      </div>
+
+      <form class="capture reveal" id="form-hero" novalidate>
+        <div class="field">
+          <label class="visually-hidden" for="email-hero">E-mailadres</label>
+          <input type="email" id="email-hero" name="email" placeholder="jouw@e-mailadres.be" required autocomplete="email">
+        </div>
+        <button class="btn" type="submit">Ontvang gratis de analyse</button>
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term"><input type="hidden" name="utm_content">
+      </form>
+      <p class="consent reveal" id="msg-hero">Door in te schrijven ontvang je de maandanalyse via onze researchpartner Value&nbsp;Jagers. Geen spam. Zie ons <a href="https://valuejagers.com/disclaimer/" target="_blank" rel="noopener">privacybeleid</a>.</p>
+
+      <div class="success" id="ok-hero" role="status" aria-live="polite">
+        <div class="h"><svg class="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg>Gelukt!</div>
+        <p>Check je inbox — de eerstvolgende analyse is onderweg.</p>
+      </div>
+    </div>
+
+    <aside class="report reveal" aria-label="Voorbeeld van een maandanalyse">
+      <div class="report-top"><span class="t">MAANDANALYSE</span><span class="e">EDITIE — DEZE MAAND</span></div>
+      <div class="report-body">
+        <div class="nm-row">
+          <span class="blur-name" aria-hidden="true">Meridian N.V.</span>
+          <span class="lock"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>VERGRENDELD</span>
+        </div>
+        <div class="reveal-note">Naam &amp; ticker — onthuld zodra je inschrijft.</div>
+        <div class="grid">
+          <div class="cell"><div class="k">Sector</div><div class="v">Industrie</div></div>
+          <div class="cell"><div class="k">Beurswaarde</div><div class="v">€ 1,4 mrd</div></div>
+          <div class="cell"><div class="k">Koersdoel</div><div class="v r">€ 00,00</div></div>
+          <div class="cell"><div class="k">Opwaarts potentieel</div><div class="v up r">+00 %</div></div>
+        </div>
+        <div class="th"><div class="th-lbl">De analyse</div>
+          <p>De markt waardeert dit bedrijf nog op een verouderd beeld, terwijl de orderboeken en de vrije kasstroom een heel ander verhaal vertellen.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- BENEFITS-REGEL -->
+<section class="benefits">
+  <div class="wrap">
+    <span class="lab">Elke maand:</span>
+    <span class="chip"><span class="d"></span>De analyse</span>
+    <span class="chip"><span class="d"></span>De cijfers</span>
+    <span class="chip"><span class="d"></span>Koersdoel &amp; instapzone</span>
+    <span class="chip"><span class="d"></span>De risico's</span>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Mogelijk gemaakt door onze partners</span>
+      <h2>Onderzoek waar je op kunt bouwen.</h2>
+    </div>
+    <div class="pgrid">
+      <div class="pcard reveal">
+        <span class="pm vj">VJ</span>
+        <div>
+          <div class="pname">Value Jagers <span class="ptag">Research</span></div>
+          <p>Het grootste research­platform in de Lage Landen voor ondergewaardeerde value-aandelen.</p>
+        </div>
+      </div>
+      <div class="pcard reveal">
+        <span class="pm bv">BV</span>
+        <div>
+          <div class="pname">BeleggersVizier <span class="ptag">Evenement</span></div>
+          <p>Het grootste online beleggers­evenement in België en Nederland, met nationale en internationale experten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE CTA -->
+<section class="final">
+  <span class="glow"></span>
+  <div class="wrap">
+    <span class="eyebrow">Begin vandaag</span>
+    <h2>Klaar voor je <span>eerste analyse</span>?</h2>
+    <p class="lede">Laat je e-mailadres achter en ontvang elke maand gratis één onderbouwde aandelentip.</p>
+    <form class="capture" id="form-final" novalidate>
+      <div class="field">
+        <label class="visually-hidden" for="email-final">E-mailadres</label>
+        <input type="email" id="email-final" name="email" placeholder="jouw@e-mailadres.be" required autocomplete="email">
+      </div>
+      <button class="btn" type="submit">Ontvang gratis de analyse</button>
+      <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term"><input type="hidden" name="utm_content">
+    </form>
+    <p class="consent" id="msg-final">Door in te schrijven ontvang je de maandanalyse via onze researchpartner Value&nbsp;Jagers. Geen spam · uitschrijven in 1 klik.</p>
+    <div class="success" id="ok-final" role="status" aria-live="polite">
+      <div class="h"><svg class="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg>Gelukt!</div>
+      <p>Check je inbox — de eerstvolgende analyse is onderweg.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="ftop">
+      <span class="name">Aandelen Research</span>
+      <span class="mono partner">Mogelijk gemaakt door Value Jagers · <span id="yr"></span></span>
+    </div>
+    <p class="disc">Aandelen Research is een informatieve dienst. De maandanalyse wordt verzorgd en verzonden door onze researchpartner Value Jagers. De inhoud is educatief en vormt geen persoonlijk beleggingsadvies. Beleggen brengt risico's met zich mee: je kunt (een deel van) je inleg verliezen. Rendementen uit het verleden bieden geen garantie voor de toekomst. Neem altijd zelf je beleggingsbeslissingen, eventueel na overleg met een erkend adviseur.</p>
+    <p class="disc">Je e-mailadres gebruiken we uitsluitend om je de maandanalyse te bezorgen en wordt daarvoor toegevoegd aan de verzendlijst van Value Jagers. We delen het niet met andere partijen. Uitschrijven kan op elk moment via de link onderaan elke e-mail.</p>
+    <div class="legal"><a href="https://valuejagers.com/disclaimer/" target="_blank" rel="noopener">Privacybeleid</a><a href="#">Voorwaarden</a><a href="#">Uitschrijven</a><a href="#">Contact</a></div>
+  </div>
+</footer>
+
+<!-- STICKY MOBIEL -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="lbl">Gratis maandanalyse<small>12 per jaar · geen kosten</small></div>
+  <button class="btn" id="sticky-btn" type="button">Inschrijven</button>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // UTM uit URL naar verborgen velden
+  (function(){const p=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k=>{const v=p.get(k);if(!v)return;document.querySelectorAll('input[name="'+k+'"]').forEach(el=>el.value=v);});})();
+
+  // Formulier — koppel hieronder je e-mailtool (Delivermail / Campaign Monitor / Mailchimp)
+  function wire(formId,msgId,okId){
+    const f=document.getElementById(formId),m=document.getElementById(msgId),ok=document.getElementById(okId),inp=f.querySelector('input[type=email]');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();const v=inp.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){m.textContent='Vul een geldig e-mailadres in om de gratis analyse te ontvangen.';m.style.color='#FF6B35';inp.focus();return;}
+      // === HIER je e-mailtool koppelen ===
+      // fetch('JOUW_ESP_ENDPOINT',{method:'POST',body:new FormData(f)});
+      // ===================================
+      f.style.display='none';m.style.display='none';ok.classList.add('show');
+    });
+  }
+  wire('form-hero','msg-hero','ok-hero');
+  wire('form-final','msg-final','ok-final');
+
+  // Sticky mobiele CTA
+  (function(){
+    const bar=document.getElementById('sticky');
+    document.getElementById('sticky-btn').addEventListener('click',function(){const i=document.getElementById('email-hero');i.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>i.focus(),420);});
+    const io=new IntersectionObserver(es=>{es.forEach(en=>{bar.classList.toggle('show',!en.isIntersecting);});},{threshold:0});
+    io.observe(document.querySelector('.hero'));
+  })();
+
+  // Reveal
+  const io2=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io2.unobserve(en.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=Math.min(i*35,210)+'ms';io2.observe(el);});
+</script>
+</body>
+</html>
